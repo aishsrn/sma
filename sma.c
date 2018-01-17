@@ -23,33 +23,34 @@ float getf(char* line, int num)
 int main()
 {
 	float sum,a[500],sm;
-	int n,w,i,ch;
+	int n,w,i,ch,j;
 	char line[1024];
+	FILE *f=fopen("data.csv","r");
+	fgets(line,1024,f);
+	while(fgets(line,1024,f))
+	{
+		//printf("\n%s",line);
+		a[i++]=getf(line,5);
+				
+	}
 	do{
 		printf("\n1. SMA\n2. Exit \n Option:");
 		scanf("%d",&ch);
 		if(ch==1)
 		{	
-			sum =0;i=0;
-			printf("Enter number of inputs and window size:");
-			scanf("%d",&n);
+			sum =0;
+			printf("Enter window size:");
+			
 			scanf("%d",&w);
-			FILE *f=fopen("data.csv","r");
-			fgets(line,1024,f);
-			while(fgets(line,1024,f))
+			
+			for(j=0;j<i;j++)
 			{
-				//printf("\n%s",line);
-				a[i++]=getf(line,5);
+				printf("\nInput :%f ",a[j]);
 				
-			}
-			for(i=0;i<n;i++)
-			{
-				printf("\nInput :%f ",a[i]);
-				
-				if(i<w) { sum+=a[i]; sm=sum/w; }
-				if(i==w-1) printf("\tSMA:%f",sm);
-				if(i>=w)
-				{	sm=sm+(a[i]-a[i-w])/w;
+				if(j<w) { sum+=a[j]; sm=sum/w; }
+				if(j==w-1) printf("\tSMA:%f",sm);
+				if(j>=w)
+				{	sm=sm+(a[j]-a[j-w])/w;
 					printf("\tSMA:%f",sm);
 					
 				}
