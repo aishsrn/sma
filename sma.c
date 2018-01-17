@@ -47,10 +47,10 @@ int main()
 				printf("\nInput :%f ",a[i]);
 				
 				if(i<w) { sum+=a[i]; sm=sum/w; }
-				if(i==w-1) printf("SMA:%f\n",sm);
+				if(i==w-1) printf("\tSMA:%f",sm);
 				if(i>=w)
 				{	sm=sm+(a[i]-a[i-w])/w;
-					printf("\tSMA:%f\n",sm);
+					printf("\tSMA:%f",sm);
 					
 				}
 			}					
